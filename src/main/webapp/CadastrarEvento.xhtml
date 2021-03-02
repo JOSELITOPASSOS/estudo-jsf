@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meetapp</title>
+</h:head>
+<h:body>
+	<h1>Cadastrar Eventos</h1>
+	<!-- FORMULARIO -->
+	<h:form>
+		<h:panelGrid columns="4">
+			<h:outputText value="Nome do Evento:" />
+			<h:inputText value="#{eventoBean.evento.nome}" />
+
+			<h:outputText value="Nome da Organização:" />
+			<h:inputText value="#{eventoBean.evento.organizacao}" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="6">
+			<h:outputText value="Local:" />
+			<h:inputText value="#{eventoBean.evento.local}" />
+
+			<h:outputText value="Data:" />
+			<h:inputText value="#{eventoBean.evento.data}" />
+
+			<h:outputText value="Horario:" />
+			<h:inputText value="#{eventoBean.evento.horario}" />
+		</h:panelGrid>
+		<!-- BUTTON -->
+		<h:button value="Cadastrar" action="#{eventoBean.addEvento}" />
+	</h:form>
+	<h1>Lista de eventos</h1>
+	<!-- TABELA -->
+	<h:dataTable value="#{eventoBean.eventos}" var="e" border="1">
+		<h:column>#{e.nome}</h:column>
+		<h:column>#{e.organizacao}</h:column>
+		<h:column>#{e.local}</h:column>
+		<h:column>#{e.data}</h:column>
+		<h:column>#{e.horario}</h:column>
+	</h:dataTable>
+	</h:body>
+</html>
